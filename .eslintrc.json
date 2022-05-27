@@ -1,6 +1,11 @@
 {
-  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
-  "plugins": ["react"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/recommended",
+    "prettier"
+  ],
+  "plugins": ["react", "import"],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/no-unescaped-entities": "warn",
@@ -8,7 +13,16 @@
     "no-undef": 0,
     "no-mixed-operators": "error",
     "no-console": "off",
-    "no-dupe-class-members": "off"
+    "no-dupe-class-members": "off",
+    "import/no-unresolved": [1, { "commonjs": true, "amd": true }]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      }
+    },
+    "react": { "version": "detect" }
   },
   "parserOptions": {
     "ecmaFeatures": {
